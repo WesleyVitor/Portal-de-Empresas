@@ -1,15 +1,15 @@
 import React from 'react';
-import { CommonLink,Icon } from '../../styles/global';
-import {MainSection, Wrapper, Section,Text, ShelfItem, Shelf} from './styles'
+import { CommonLink,Icon,StripeHeader,MainSection,Text } from '../../styles/global';
+import {Section, ShelfItem, Shelf} from './styles'
 import { Link } from 'react-router-dom';
 const Main = ()=>{
     return(
         <MainSection>
-            <Wrapper>
+            <StripeHeader>
                 <Icon width="26px" height="17px" src='/assets/Shape.png'/>
-            </Wrapper>
+            </StripeHeader>
             <Section>
-                <Text size="20px">Inicio</Text>
+                <Text color="#343E47" size="20px">Inicio</Text>
                 <Shelf>
                     <ShelfItem>
                         <Link as={CommonLink} to='/list'>

@@ -1,20 +1,8 @@
 import styled from "styled-components";
 
-export const MainSection = styled.main`
-    width:100%;
-    right:0;
-    background:#F3F2F1;
-    
-`
 
-export const Wrapper = styled.div`
-    background:#FFF;
-    width:100%;
-    height:56px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-`
+
+
 export const Section = styled.section`
     width:570px;
     margin-left:108px;
@@ -26,11 +14,7 @@ export const Section = styled.section`
 `
 
 
-export const Text = styled.p`
-    color: #343E47;
-    font-family:"Roboto", sans-serif;
-    font-size:${props=>props.size};
-`
+
 
 export const Shelf = styled.div`
     display:flex;
@@ -45,7 +29,8 @@ export const ShelfItem = styled.div`
     padding:40px 100px;
     margin-right:26px;
     text-align:center;
-
+    border-radius:4px;
+    box-shadow:0px 1px 3px rgba(0,0,0,.26);
     @media(max-width:800px){
         margin-top:26px;
         margin-right:0;
