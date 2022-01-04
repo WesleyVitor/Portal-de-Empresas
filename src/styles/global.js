@@ -7,6 +7,7 @@ text-decoration:none;
 export const Icon = styled.img`
 width:${props => props.width};
 height:${props => props.height};
+border-radius: ${props=>props.radius || "0"} ;
 `
 
 export const Container = styled.div`
