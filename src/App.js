@@ -2,34 +2,14 @@ import Home from './pages/Home';
 import Form from './pages/Form';
 import List from './pages/List';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
+import axios from 'axios'
 function App() {
-  const [companies, setCompanies] = useState([
-    {
-      name:"facebook",
-      cnpj:"9999999-99",
-      image:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png",
-      date_open:'18/04/2004',
-      cep:'59300-000',
-      street:'severino costa',
-      number:'89',
-      district:'Barra nova',
-      federated_unit:'RN',
-      city:'Caicó'
-    },
-    {
-      name:"facebook",
-      cnpj:"9999999-99",
-      image:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png",
-      date_open:'18/04/2004',
-      cep:'59300-000',
-      street:'severino costa',
-      number:'89',
-      district:'Barra nova',
-      federated_unit:'RN',
-      city:'Caicó'
-    }
-  ])
+  useEffect(async ()=>{
+    axios.get("http://localhost:5000/getCompanies").then((res)=> setCompanies(res.data.dados))
+  },[])
+  const [companies, setCompanies] = useState([])
+
   
   return (
     <BrowserRouter>
