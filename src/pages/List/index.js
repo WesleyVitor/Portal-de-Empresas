@@ -3,7 +3,7 @@ import { Container, StripeHeader,Icon,MainSection,Text } from '../../styles/glob
 import Header from '../../Components/Header';
 import Table from '../../Components/Table';
 import { StripeTable } from './styles';
-const List = ({companies})=>{
+const List = ({companies,handleDeleteButton})=>{
     return(
         <Container>
             <Header/>
@@ -14,7 +14,7 @@ const List = ({companies})=>{
                 <StripeTable>
                     <Text size="20px" color="#FFF">Empresas</Text>
                 </StripeTable>
-                <Table companies={companies}/>
+                <Table companies={companies} handleDeleteButton={handleDeleteButton} />
             </MainSection>
             
         </Container>

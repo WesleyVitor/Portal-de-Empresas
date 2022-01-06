@@ -16,8 +16,12 @@ app.get("/getCompanies",(req,res)=>{
 
 app.post("/companies",(req,res)=>{
     companies.push(req.body)
-    res.status(200).json({message:"Registered by sucess"})
+    res.status(200).json({message:"Registered by sucess!"})
+})
 
+app.delete("/delete/:company", (req,res)=>{
+    companies.splice(req.params.company.id);
+    res.status(200).json({message:"Deleted by sucess!"})
 })
 
 

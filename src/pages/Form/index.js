@@ -5,6 +5,7 @@ import {StyleForm} from './styles';
 import axios from 'axios'
 const Form = ({addCompany})=>{
     const initialForm = {
+        id:null,
         name:"",
         cnpj:"",
         email:"",
@@ -23,9 +24,9 @@ const Form = ({addCompany})=>{
         setCompany({...company, [name]:value})
     }
 
-    const handleSubmit = async()=>{
+    const handleSubmit = ()=>{
         setCompany(initialForm);
-        axios.post("http://localhost:5000/companies",company).then(()=>alert("Dados cadastrado com sucesso"))
+        addCompany(company)
 
     }
     return(
