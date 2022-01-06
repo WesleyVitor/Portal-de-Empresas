@@ -14,6 +14,10 @@ export const StyleForm = styled.form`
         line-height:18px;
     
         color:#9E9E9E;
+
+        @media(max-width:984px){
+            margin-bottom:10px;
+        }
     }
 
     & fieldset{
@@ -35,6 +39,8 @@ export const StyleForm = styled.form`
             display:inline-flex;
             flex-direction:column;
         }
+
+        
     }
 
     & .andress-fieldset{

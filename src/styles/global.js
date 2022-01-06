@@ -45,6 +45,17 @@ padding-left:10px;
 color:#FFF;
 font-size:20px;
 font-family:"Roboto", sans-serif;
+@media(max-width:800px){
+    font-size:18px;
+    
+}
+
+@media(max-width:705px){
+    font-size:18px;
+    padding-bottom:20px;
+}
+
+
 
 
 `
