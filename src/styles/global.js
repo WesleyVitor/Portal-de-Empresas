@@ -34,3 +34,17 @@ export const Text = styled.p`
     font-family:"Roboto", sans-serif;
     font-size:${props=>props.size};
 `
+
+export const Stripe = styled.div`
+display:flex;
+justify-content: space-between;
+background:#2E2E3A;
+height:34px;
+padding-top:20px;
+padding-left:10px;
+color:#FFF;
+font-size:20px;
+font-family:"Roboto", sans-serif;
+
+
+`

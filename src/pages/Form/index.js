@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Header from '../../Components/Header';
-import { Container,MainSection,StripeHeader,Icon } from '../../styles/global';
+import { Container,MainSection,StripeHeader,Icon, Stripe,Text } from '../../styles/global';
 import {StyleForm} from './styles';
 import axios from 'axios'
 const Form = ({addCompany})=>{
@@ -35,36 +35,43 @@ const Form = ({addCompany})=>{
                 <StripeHeader>
                     <Icon width="26px" height="17px" src='/assets/Shape.png'/>
                 </StripeHeader>
-                <StyleForm onSubmit={handleSubmit}  >
-                    <div>
-                        <label>Nome</label>
-                        <input type="text" value={company.name} name='name' onChange={handleChange}/>
-                        <label>CNPJ</label>
-                        <input type="text" value={company.cnpj} name='cnpj' onChange={handleChange}/>
-                    </div>
-                    
-                    <label>Email</label>
-                    <input type="text" value={company.email} name='email' onChange={handleChange}/>
-                    <label>Data de abertura</label>
-                    <input type="date" value={company.date_open} name='date_open' onChange={handleChange}/>
-                    <fieldset>
-                        <legend>Endereço</legend>
+                <StyleForm onSubmit={handleSubmit}>
+                    <Stripe>
+                        Empresas/Cadastar Empresa
+                        <input type="submit" value="Enviar"/>
+                    </Stripe>
+                    <fieldset className='person-fieldset'>
                         <div>
-                            <label>CEP</label>
-                            <input type="text" value={company.cep} name='cep' onChange={handleChange}/>
-                            <label>Rua</label>
-                            <input type="text" value={company.street} name='street' onChange={handleChange}/>
+                            <input required placeholder='Nome' type="text" value={company.name} name='name' onChange={handleChange}/>
+                            <input required placeholder='CNPJ' type="text" value={company.cnpj} name='cnpj' onChange={handleChange}/>
+                            <input placeholder='Email' type="text" value={company.email} name='email' onChange={handleChange}/>
+                        
+                        </div>
+                        <div id="opening">
+                            <label>Data de Abertura</label>
+                            <input required placeholder='Data de abertura' type="date" value={company.date_open} name='date_open' onChange={handleChange}/>
                         </div>
                         
-                        <label>Número</label>
-                        <input type="text" value={company.number} name='number' onChange={handleChange}/>
-                        <label>Bairro</label>
-                        <input type="text" value={company.district} name='district' onChange={handleChange}/>
-                        <label>Cidade</label>
-                        <input type="text" value={company.city} name='city' onChange={handleChange}/>
+                         
                     </fieldset>
                     
-                    <input type="submit" value="Enviar"/>
+                    <fieldset className='andress-fieldset'>
+                        <legend>Endereço</legend>
+                        <div>
+                            <input required placeholder='Cep' type="text" value={company.cep} name='cep' onChange={handleChange}/>
+                            
+                            <input placeholder='Rua' type="text" value={company.street} name='street' onChange={handleChange}/>
+                        </div>
+                        
+                        
+                        <input placeholder='Número' type="text" value={company.number} name='number' onChange={handleChange}/>
+                        
+                        <input placeholder='Bairro' type="text" value={company.district} name='district' onChange={handleChange}/>
+                        
+                        <input placeholder='Cidade' type="text" value={company.city} name='city' onChange={handleChange}/>
+                    </fieldset>
+                    
+                    
                 </StyleForm>
             </MainSection>
             
