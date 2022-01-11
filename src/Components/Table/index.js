@@ -1,10 +1,7 @@
-import React,{useState} from 'react';
-import { TableCompany } from './styles';
-import { CommonLink } from '../../styles/global';
-import axios from 'axios';
-const Table = ({companies, handleDeleteButton})=>{
-    
+import React from 'react';
+import { TableCompany, Button } from './styles';
 
+const Table = ({companies, handleDeleteButton})=>{
     
     return(
         <TableCompany>
@@ -34,8 +31,8 @@ const Table = ({companies, handleDeleteButton})=>{
                                 </td>
                                 <td>{company.date_open}</td>
                                 <td>
-                                    <button >Editar</button>
-                                    <button onClick={()=>handleDeleteButton(index)}>Deletar</button>
+                                    <Button to={`/editForm/${company.id}`}>Editar</Button>
+                                    <Button to="/" onClickCapture={()=>handleDeleteButton(index)}>Deletar</Button>
                                 </td>
                                 
                                

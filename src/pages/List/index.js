@@ -3,7 +3,7 @@ import { Container, StripeHeader,Icon,MainSection,Text } from '../../styles/glob
 import Header from '../../Components/Header';
 import Table from '../../Components/Table';
 import { StripeTable } from './styles';
-const List = ({companies,handleDeleteButton})=>{
+const List = ({companies=[],handleDeleteButton})=>{
     return(
         <Container>
             <Header/>

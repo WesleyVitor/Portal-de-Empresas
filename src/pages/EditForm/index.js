@@ -1,23 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Header from '../../Components/Header';
-import { Container,MainSection,StripeHeader,Icon, Stripe,Text } from '../../styles/global';
-import {StyleForm} from './styles';
-import {useNavigate} from 'react-router-dom';
-const Form = ({addCompany})=>{
-    const navigate = useNavigate();
-    const initialForm = {
-        id:null,
-        name:"",
-        cnpj:"",
-        email:"",
-        date_open:"",
-        cep:"",
-        street:"",
-        number:"",
-        district:"",
-        city:""
-    }
-    const [company, setCompany] = useState(initialForm);
+import { Container,MainSection,StripeHeader,Icon, Stripe } from '../../styles/global';
+import {StyleForm} from '../Form/styles';
+import axios from 'axios';
+import {useParams, useNavigate  } from 'react-router-dom';
+
+const EditForm = ()=>{
+    const {id} = useParams();
+    let navigate = useNavigate();
+    useEffect(()=>{
+        axios.get(`http://localhost:5000/show/${id}`).then((res)=>setCompany(res.data))
+    },[])
+
+    const [company, setCompany] = useState({});
 
     const handleChange = (event)=>{
         const {name, value} = event.target;
@@ -26,10 +21,8 @@ const Form = ({addCompany})=>{
     }
 
     const handleSubmit = ()=>{
-        setCompany(initialForm);
-        addCompany(company)
+        axios.post("http://localhost:5000/edit", company).then(()=>alert("Atualizado com sucesso!"))
         navigate("/list")
-
     }
     return(
         <Container>
@@ -40,7 +33,7 @@ const Form = ({addCompany})=>{
                 </StripeHeader>
                 <StyleForm onSubmit={handleSubmit}>
                     <Stripe>
-                        Empresas/Cadastar Empresa
+                        Empresas/Editar Empresa
                         <input type="submit" value="Enviar"/>
                     </Stripe>
                     <fieldset className='person-fieldset'>
@@ -82,4 +75,4 @@ const Form = ({addCompany})=>{
         
     );
 }
-export default Form;
+export default EditForm;

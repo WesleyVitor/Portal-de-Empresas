@@ -1,6 +1,7 @@
 import Home from './pages/Home';
 import Form from './pages/Form';
 import List from './pages/List';
+import EditForm from './pages/EditForm';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import React,{useState, useEffect} from 'react';
 import axios from 'axios'
@@ -28,6 +29,7 @@ function App() {
       <Routes>
         <Route path="/"  element={<Home/>}/>
         <Route path="/form"  element={<Form addCompany={addCompany}/>}/>
+        <Route path="/editForm/:id"  element={<EditForm/>}/>
         <Route path="/list"  element={<List companies={companies} handleDeleteButton={handleDeleteButton}/>}/>
       </Routes>
     </BrowserRouter>
